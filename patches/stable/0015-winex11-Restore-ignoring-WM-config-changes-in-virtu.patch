@@ -1,0 +1,39 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: vinegar-fork <local@localhost>
+Date: Wed, 26 Aug 2026 00:00:00 +0000
+Subject: [PATCH 15/15] winex11: Restore ignoring WM config changes in
+ virtual desktop mode
+
+Patch 0008 in this patchset reverts an upstream commit wholesale to
+fix invisible QT menus, which also removed the guard that makes Wine
+ignore window-manager-driven resize/configure events while running in
+virtual desktop mode. Without that guard, some Wayland compositors
+(observed on KDE Plasma / KWin) end up resizing the virtual desktop's
+top-level window to fill the entire output, overriding the
+configured Desktop resolution and causing the compositor to treat it
+as if it were fullscreen (hiding panels/taskbars, no visible
+decorations).
+
+This re-adds just that guard on top of 0008, without reverting the
+rest of it (StructureNotifyMask stays removed, the
+configure_serial-on-Withdraw fix stays), as a targeted experiment.
+
+Signed-off-by: vinegar-fork <local@localhost>
+---
+ dlls/winex11.drv/window.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/dlls/winex11.drv/window.c b/dlls/winex11.drv/window.c
+index ebeabdcc465..1a2b3c4d5e6 100644
+--- a/dlls/winex11.drv/window.c
++++ b/dlls/winex11.drv/window.c
+@@ -1745,6 +1745,7 @@ static UINT window_update_client_config( struct x11drv_win_data *data )
+     UINT flags;
+ 
+     if (!data->managed) return 0; /* unmanaged windows are managed by the Win32 side */
++    if (is_virtual_desktop()) return 0; /* ignore window manager config changes in virtual desktop mode */
+     if (data->desired_state.wm_state != NormalState) return 0; /* ignore config changes on invisible/minimized windows */
+ 
+     if (data->wm_state_serial) return 0; /* another WM_STATE update is pending, wait for it to complete */
+-- 
+2.55.0
