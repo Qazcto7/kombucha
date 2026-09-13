@@ -1,13 +1,16 @@
-From e4d3bca5e2504e8bc316cb5cc4c7a784f4d1432c Mon Sep 17 00:00:00 2001
+From 9a331502465a7d531b6e294274217eaa4172a059 Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
 Date: Thu, 27 Aug 2026 00:27:31 +0200
-Subject: [PATCH 06/10] Revert "HACK: proton: advapi32: Use steamuser as Wine
- username."
+Subject: [PATCH 04/10] =?UTF-8?q?Revert=20=E2=80=9CHACK:=20proton:=20advap?=
+ =?UTF-8?q?i32:=20Use=20steamuser=20as=20Wine=20username.=E2=80=9D?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Prevents issues with the Wine prefix username when switching to or away
-from Proton.
+Prevents issues with Roblox Studio's AppData location when switching to
+or away from Proton.
 
-Source: https://github.com/ValveSoftware/wine/commit/59b20e8
+Source: Proton-Wine commit: 59b20e82fd1211314e234b08901fafe10490ff94
 Signed-off-by: effects3d <effects3dee@gmail.com>
 ---
  dlls/advapi32/advapi.c | 34 ++++++++++++++++------------------

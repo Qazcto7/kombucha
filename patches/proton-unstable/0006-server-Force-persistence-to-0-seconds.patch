@@ -1,7 +1,7 @@
-From 39fcf916c397b36d09cd73398f554815cb2315b1 Mon Sep 17 00:00:00 2001
+From c69925abe609fbde9085915985e7ffe892af0bb0 Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
-Date: Thu, 27 Aug 2026 11:40:38 +0200
-Subject: [PATCH 08/10] server: Force persistence to 0 seconds by default
+Date: Sun, 13 Sep 2026 13:46:13 +0200
+Subject: [PATCH 06/10] server: Force persistence to 0 seconds
 
 Temporary workaround for
 https://github.com/vinegarhq/vinegar/issues/779.

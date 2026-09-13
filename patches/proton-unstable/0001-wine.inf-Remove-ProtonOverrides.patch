@@ -1,6 +1,6 @@
-From 777d5009c90722e0bc9eb218f0761dba093ab129 Mon Sep 17 00:00:00 2001
+From 05eded154ecf73ffadf9d4c55af3d96abe6f917c Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
-Date: Wed, 19 Aug 2026 13:08:10 +0200
+Date: Sun, 13 Sep 2026 13:21:22 +0200
 Subject: [PATCH 01/10] wine.inf: Remove ProtonOverrides
 
 Signed-off-by: effects3d <effects3dee@gmail.com>
@@ -9,7 +9,7 @@ Signed-off-by: effects3d <effects3dee@gmail.com>
  1 file changed, 85 deletions(-)
 
 diff --git a/loader/wine.inf.in b/loader/wine.inf.in
-index 5ace722fd63..8d229aa7a51 100644
+index 924a77e94fc..17e5e585339 100644
 --- a/loader/wine.inf.in
 +++ b/loader/wine.inf.in
 @@ -70,7 +70,6 @@ AddReg=\
@@ -20,7 +20,7 @@ index 5ace722fd63..8d229aa7a51 100644
      Services, \
      SessionMgr,\
      SteamClient,\
-@@ -1459,87 +1458,3 @@ HKLM,Software\Microsoft\Speech_OneCore\Voices\Tokens\ProtonTTS_libritts-r_14\Att
+@@ -1461,87 +1460,3 @@ HKLM,Software\Microsoft\Speech_OneCore\Voices\Tokens\ProtonTTS_libritts-r_14\Att
  HKLM,Software\Microsoft\Speech_OneCore\Voices\Tokens\ProtonTTS_libritts-r_14\Attributes,"Gender",,"Female"
  HKLM,Software\Microsoft\Speech_OneCore\Voices\Tokens\ProtonTTS_libritts-r_14\Attributes,"Age",,"Adult"
  HKLM,Software\Microsoft\Speech_OneCore\Voices\Tokens\ProtonTTS_libritts-r_14\Attributes,"Vendor",,"Wine"

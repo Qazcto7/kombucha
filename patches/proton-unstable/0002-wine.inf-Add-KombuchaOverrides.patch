@@ -1,15 +1,15 @@
-From 9c90a515a862640daaa79da094f69400435b47b8 Mon Sep 17 00:00:00 2001
+From abf11623bcdd0d441b72af32a599a42f2984ebf5 Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
-Date: Wed, 26 Aug 2026 20:35:21 +0200
+Date: Sun, 13 Sep 2026 13:24:53 +0200
 Subject: [PATCH 02/10] wine.inf: Add KombuchaOverrides
 
 Signed-off-by: effects3d <effects3dee@gmail.com>
 ---
- loader/wine.inf.in | 27 +++++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+ loader/wine.inf.in | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
 diff --git a/loader/wine.inf.in b/loader/wine.inf.in
-index 8d229aa7a51..1ee588c2572 100644
+index 17e5e585339..af9fd075f7c 100644
 --- a/loader/wine.inf.in
 +++ b/loader/wine.inf.in
 @@ -63,6 +63,7 @@ AddReg=\
@@ -20,22 +20,15 @@ index 8d229aa7a51..1ee588c2572 100644
      LicenseInformation,\
      MCI,\
      Misc,\
-@@ -1458,3 +1459,29 @@ HKLM,Software\Microsoft\Speech_OneCore\Voices\Tokens\ProtonTTS_libritts-r_14\Att
+@@ -1460,3 +1461,22 @@ HKLM,Software\Microsoft\Speech_OneCore\Voices\Tokens\ProtonTTS_libritts-r_14\Att
  HKLM,Software\Microsoft\Speech_OneCore\Voices\Tokens\ProtonTTS_libritts-r_14\Attributes,"Gender",,"Female"
  HKLM,Software\Microsoft\Speech_OneCore\Voices\Tokens\ProtonTTS_libritts-r_14\Attributes,"Age",,"Adult"
  HKLM,Software\Microsoft\Speech_OneCore\Voices\Tokens\ProtonTTS_libritts-r_14\Attributes,"Vendor",,"Wine"
 +
 +[KombuchaOverrides]
-+; Prefer loading native msvcrt DLLs that are bundled with Studio and WebView2 for better compatibility with Wine.
-+; DLLs starting with 'api-ms-win-' cannot be overridden (?).
-+; Upstream Wine refuses to load native ucrtbase, unless it's copied over to the Wineprefix. The downstream fork of Wine used in Proton includes a patch that addresses this.
-+HKCU,Software\Wine\DllOverrides,"api-ms-win-crt-conio-l1-1-0",0x2,"native,builtin"
-+HKCU,Software\Wine\DllOverrides,"api-ms-win-crt-heap-l1-1-0",0x2,"native,builtin"
-+HKCU,Software\Wine\DllOverrides,"api-ms-win-crt-locale-l1-1-0",0x2,"native,builtin"
-+HKCU,Software\Wine\DllOverrides,"api-ms-win-crt-math-l1-1-0",0x2,"native,builtin"
-+HKCU,Software\Wine\DllOverrides,"api-ms-win-crt-runtime-l1-1-0",0x2,"native,builtin"
-+HKCU,Software\Wine\DllOverrides,"api-ms-win-crt-stdio-l1-1-0",0x2,"native,builtin"
-+HKCU,Software\Wine\DllOverrides,"api-ms-win-crt-time-l1-1-0",0x2,"native,builtin"
++; Prefer loading native msvcrt DLLs bundled with Studio and WebView2 for better compatibility with Wine.
++; DLLs starting with 'api-ms-win-' cannot be overridden and are therefore not included.
++; Upstream Wine refuses to load native ucrtbase, unless it's copied over to the Wine prefix. The downstream fork of Wine used in Proton includes a patch that addresses this.
 +HKCU,Software\Wine\DllOverrides,"concrt140",0x2,"native,builtin"
 +HKCU,Software\Wine\DllOverrides,"msvcp140",0x2,"native,builtin"
 +HKCU,Software\Wine\DllOverrides,"msvcp140_1",0x2,"native,builtin"
@@ -46,10 +39,10 @@ index 8d229aa7a51..1ee588c2572 100644
 +HKCU,Software\Wine\DllOverrides,"vcruntime140",0x2,"native,builtin"
 +HKCU,Software\Wine\DllOverrides,"vcruntime140_1",0x2,"native,builtin"
 +; WebView2 requires DirectComposition on Windows versions >=8.1, which Wine doesn't support, so spoof the Windows version to 8.
-+; As of 2026-08-26, the dcomp-DCompositionCreateDevice2 patchset in Wine Staging causes WebView2 to always flicker when the Creator Store tab isn't selected.
++; As of 2026-08-30, the dcomp-DCompositionCreateDevice2 patchset in Wine Staging causes WebView2 to always flicker when the Creator Store tab isn't selected.
 +HKCU,Software\Wine\AppDefaults\msedgewebview2.exe,"Version",0x2,"win8"
-+; WebView2 uses Arial as its font, which is proprietary and doesn't come with most Linux distributions, so force it to use Liberation Sans.
-+HKCU,Software\Wine\Fonts\Replacements,"Arial",0x2,"Liberation Sans"
++; WebView2 uses Arial as its font, which is proprietary and doesn't come pre-installed on most Linux distributions, so force it to use Liberation Sans.
++HKCU,Software\Wine\Fonts\Replacements,"Arial",0x2,"Liberation Sans
 -- 
 2.55.0
 
