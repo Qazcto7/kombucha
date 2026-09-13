@@ -65,7 +65,6 @@ jobs:
             libxrandr-dev \
             libxrender-dev \
             mingw-w64 \
-            ocl-icd-opencl-dev \
             samba-dev \
             wget
 
