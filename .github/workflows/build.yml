@@ -76,8 +76,8 @@ jobs:
 
       - name: Fetch Sources
         run: |
-          [ ${{ inputs.patchset }} = proton-stable ] || [ ${{ inputs.patchset }} = proton-unstable ] && PART="hub.com/ValveSoftware" || PART="lab.winehq.org/wine"
-          git clone https://git${PART}/wine.git --depth 1 \
+          [ ${{ inputs.patchset }} = proton-stable ] || [ ${{ inputs.patchset }} = proton-unstable ] && ORG="ValveSoftware" || ORG="wine-mirror"
+          git clone https://github.com/${ORG}/wine.git --depth 1 \
             --revision=${{ inputs.commit }}
 
       - name: Apply Patches
