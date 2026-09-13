@@ -8,9 +8,6 @@ on:
           - stable
           - proton-unstable
           - unstable
-      debug:
-        type: boolean
-        default: false
       commit:
         type: string
         default: 8da89f8493b21ebfbe344a54dbef0cde23c7ea59
@@ -96,7 +93,7 @@ jobs:
           export x86_64_CCX="ccache x86_64-w64-mingw32-g++"
           export CC="ccache gcc"
           export CXX="ccache g++"
-          export x86_64_CFLAGS="-msse4.1 -pipe ${{ inputs.debug && '-g3 -O0' || '-O3' }}"
+          export x86_64_CFLAGS="-msse4.1 -pipe -O3"
           export x86_64_CXXFLAGS="${x86_64_CFLAGS}"
           export CFLAGS="${x86_64_CFLAGS} -fcf-protection -fno-plt -fstack-clash-protection -fstack-protector-strong"
           export CXXFLAGS="${CFLAGS}"
@@ -132,7 +129,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
         run: |
-          TAG="${{ inputs.patchset }}${{inputs.debug && '-debug' || '' }}"
+          TAG="${{ inputs.patchset }}"
           [ ${{ inputs.patchset }} = stable ] && TAG="${TAG}+$(date --utc +%Y%m%d%H%M%S)"
           NAME="kombucha-${TAG}"
 
