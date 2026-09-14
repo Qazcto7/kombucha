@@ -1,7 +1,7 @@
 From 05eded154ecf73ffadf9d4c55af3d96abe6f917c Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
 Date: Sun, 13 Sep 2026 13:21:22 +0200
-Subject: [PATCH 01/10] wine.inf: Remove ProtonOverrides
+Subject: [PATCH 01/11] wine.inf: Remove ProtonOverrides
 
 Signed-off-by: effects3d <effects3dee@gmail.com>
 ---

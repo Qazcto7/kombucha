@@ -1,7 +1,7 @@
 From facf04ae3d854acc22b5f6539b631e1ff693c189 Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
 Date: Sun, 13 Sep 2026 13:58:09 +0200
-Subject: [PATCH 09/10] winex11: Use the desired state for mapping delays.
+Subject: [PATCH 09/11] winex11: Use the desired state for mapping delays.
 
 Fixes https://github.com/vinegarhq/vinegar/issues/965.
 
