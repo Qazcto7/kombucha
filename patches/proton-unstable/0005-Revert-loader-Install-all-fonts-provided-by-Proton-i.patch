@@ -1,7 +1,7 @@
 From 46e96a84ac187117332e99731b1e8f47bea9d8fc Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
 Date: Sun, 13 Sep 2026 13:43:46 +0200
-Subject: [PATCH 05/10] =?UTF-8?q?Revert=20=E2=80=9Cloader:=20Install=20all?=
+Subject: [PATCH 05/11] =?UTF-8?q?Revert=20=E2=80=9Cloader:=20Install=20all?=
  =?UTF-8?q?=20fonts=20provided=20by=20Proton=20in=20the=20registry.?=
  =?UTF-8?q?=E2=80=9D?=
 MIME-Version: 1.0

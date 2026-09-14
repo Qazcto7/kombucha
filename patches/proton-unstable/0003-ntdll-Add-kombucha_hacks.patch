@@ -1,7 +1,7 @@
 From 52b2d0f0496a013548e06a449c8ec8bb4ff00f5f Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
 Date: Sun, 13 Sep 2026 13:36:57 +0200
-Subject: [PATCH 03/10] ntdll: Add kombucha_hacks
+Subject: [PATCH 03/11] ntdll: Add kombucha_hacks
 
 Adds necessary workarounds/hacks for Roblox Studio and underlying
 programs:

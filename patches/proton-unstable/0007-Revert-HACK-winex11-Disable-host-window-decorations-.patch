@@ -1,7 +1,7 @@
 From 747345de8e438ca936b313b1de34b79f656a2327 Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
 Date: Sun, 13 Sep 2026 13:47:44 +0200
-Subject: [PATCH 07/10] =?UTF-8?q?Revert=20=E2=80=9CHACK:=20winex11:=20Disa?=
+Subject: [PATCH 07/11] =?UTF-8?q?Revert=20=E2=80=9CHACK:=20winex11:=20Disa?=
  =?UTF-8?q?ble=20host=20window=20decorations=20with=20Mutter.=E2=80=9D?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
