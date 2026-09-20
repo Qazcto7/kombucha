@@ -1,20 +1,23 @@
-From ccae40e183a220487152337d1f1089aba34a27c5 Mon Sep 17 00:00:00 2001
+From d82ab385c3411d5085f6c08871d6a7a118b7a419 Mon Sep 17 00:00:00 2001
 From: effects3d <effects3dee@gmail.com>
-Date: Thu, 27 Aug 2026 15:52:16 +0200
-Subject: [PATCH 10/10] Revert "HACK: win32u: Avoid loading EGL if
- WINE_USE_EGL=0."
+Date: Sun, 13 Sep 2026 13:50:32 +0200
+Subject: [PATCH 08/11] =?UTF-8?q?Revert=20=E2=80=9CHACK:=20win32u:=20Avoid?=
+ =?UTF-8?q?=20loading=20EGL=20if=20WINE=5FUSE=5FEGL=3D0.=E2=80=9D?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Reverts a regression with WineD3D performance, due to GLX being used for
-OpenGL rendering under winex11.
+Roblox Studio's performance under winex11's GLX backend is abysmal, so
+use EGL by default.
 
-Source: https://github.com/ValveSoftware/wine/commit/c3202e9
+Source: Proton-Wine commit: c3202e9d9f68191508892be146dab2e1ba929f78
 Signed-off-by: effects3d <effects3dee@gmail.com>
 ---
  dlls/win32u/opengl.c | 8 +-------
  1 file changed, 1 insertion(+), 7 deletions(-)
 
 diff --git a/dlls/win32u/opengl.c b/dlls/win32u/opengl.c
-index 03346f5b5f6..7c91f8fac92 100644
+index c7aeea130b8..e319289ad34 100644
 --- a/dlls/win32u/opengl.c
 +++ b/dlls/win32u/opengl.c
 @@ -1433,13 +1433,7 @@ static const struct opengl_driver_funcs egldrv_funcs =
