@@ -13,7 +13,7 @@ on:
         default: false
       commit:
         type: string
-        default: 36b6a2cf679fb395f668a917b76537190e212d9c
+        default: 7b3fff76fa5178f6ce0141b2c776afa2a822f101
 permissions:
   contents: write
   pull-requests: read
